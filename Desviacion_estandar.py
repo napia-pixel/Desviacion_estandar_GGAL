@@ -76,9 +76,44 @@ def graficar_distribucion_normal(simbolo, dias_proyeccion=30, periodo='1y'):
     ax.grid(True)
     plt.tight_layout()
 
+
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
 
-    # [Rest of the function remains the same...]
+    # Mostrar estadísticas en una tabla
+    st.subheader("📊 Estadísticas de Proyección")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Precio Actual", f"${precio_actual:.2f}")
+    
+    with col2:
+        st.metric("Intervalo 68%", f"${conf_68[0]:.2f} - ${conf_68[1]:.2f}")
+    
+    with col3:
+        st.metric("Intervalo 95%", f"${conf_95[0]:.2f} - ${conf_95[1]:.2f}")
+    
+    with col4:
+        st.metric("Intervalo 99%", f"${conf_99[0]:.2f} - ${conf_99[1]:.2f}")
 
-# [Rest of the code remains the same...]
+# Sidebar para parámetros
+st.sidebar.header("⚙️ Parámetros")
+
+# Input para el símbolo
+simbolo = st.sidebar.text_input("Símbolo de la Acción", "GGAL.BA")
+
+# Selector para el período
+periodo_opciones = {
+    '1 mes': '1mo',
+    '3 meses': '3mo',
+    '6 meses': '6mo',
+    '1 año': '1y',
+    '2 años': '2y',
+    '5 años': '5y'
+}
+periodo = st.sidebar.selectbox(
+    "Período Histórico",
+    options=list(periodo_opciones.keys()),
+    index=3
+)
