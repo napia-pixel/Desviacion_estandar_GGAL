@@ -96,9 +96,9 @@ def graficar_distribucion_normal(simbolo, dias_proyeccion=30, periodo='1y'):
                label=f'Precio actual: ${precio_actual:.2f}')
     
     ax.set_yticklabels([])
-    ax.set_title(f'Distribución Normal de Precios Proyectados a {dias_proyeccion} días\n{simbolo}')
+    ax.set_title(f'Distribución Normal de Precios Proyectados a {dias_proyeccion} días\n{simbolo}             by Napia')
     ax.set_xlabel('Precio')
-    ax.set_ylabel('                Probabilidad                by Napia')
+    ax.set_ylabel('Probabilidad')
     ax.legend(bbox_to_anchor=(0.75, 0.99), loc='upper left', borderaxespad=0.)
     ax.grid(True)
     plt.tight_layout()
