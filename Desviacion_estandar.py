@@ -169,4 +169,5 @@ st.sidebar.markdown("""
 - Los cálculos se basan en la volatilidad histórica
 - Se asume una distribución normal de retornos
 - Los intervalos muestran rangos de precios probables
+- Por consultas: https://x.com/NapiaOk
 """)
